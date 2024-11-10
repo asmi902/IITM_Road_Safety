@@ -51,7 +51,7 @@ def train_model():
         'rf__min_samples_leaf': [1, 2, 4]
     }
 
-    grid_search = GridSearchCV(pipeline, param_grid, cv=5, scoring='accuracy')
+    grid_search = GridSearchCV(pipeline, param_grid, cv=3, scoring='accuracy')  # Change cv to 3
     grid_search.fit(X_train, y_train)
 
     # Model evaluation
