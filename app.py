@@ -54,11 +54,13 @@ def train_model():
 
 model, X_test, y_test = train_model()
 
+# Display model evaluation results
 st.subheader("Model Evaluation Metrics")
 y_pred = model.predict(X_test)
-y_pred_proba = model.predict_proba(X_test)[:, 1]
+y_pred_proba = model.predict_proba(X_test)[:, 1]  # Get probabilities for the positive class
+
 accuracy = accuracy_score(y_test, y_pred)
-roc_auc = roc_auc_score(y_test, y_pred_proba)
+roc_auc = roc_auc_score(y_test, y_pred_proba)  # Use probabilities for ROC AUC score
 
 st.write("**Accuracy:**", accuracy)
 st.write("**ROC-AUC Score:**", roc_auc)
@@ -66,6 +68,7 @@ st.write("**Classification Report:**")
 st.text(classification_report(y_test, y_pred))
 st.write("**Confusion Matrix:**")
 st.write(confusion_matrix(y_test, y_pred))
+
 
 st.subheader("Feature Importance")
 feature_importances = model.named_steps['rf'].feature_importances_
