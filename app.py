@@ -11,9 +11,6 @@ import joblib
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Configure Streamlit to render Matplotlib and Seaborn plots
-st.set_option('deprecation.showPyplotGlobalUse', False)
-
 # Title and description
 st.title("Adaptive Learning Performance Prediction")
 st.write("""
