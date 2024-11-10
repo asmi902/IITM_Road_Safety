@@ -18,6 +18,7 @@ This app uses a machine learning model to predict a learner's final score based 
 """)
 
 # Load or train the model
+# Load or train the model
 @st.cache_resource
 def train_model():
     # Sample data (replace with actual dataset)
@@ -51,7 +52,8 @@ def train_model():
         'rf__min_samples_leaf': [1, 2, 4]
     }
 
-    grid_search = GridSearchCV(pipeline, param_grid, cv=3, scoring='accuracy')  # Change cv to 3
+    # Change cv to 3
+    grid_search = GridSearchCV(pipeline, param_grid, cv=3, scoring='accuracy')
     grid_search.fit(X_train, y_train)
 
     # Model evaluation
@@ -62,6 +64,7 @@ def train_model():
 
     # Return model and test data for further use
     return best_model, X_test, y_test
+
 
 # Load trained model and data
 model, X_test, y_test = train_model()
